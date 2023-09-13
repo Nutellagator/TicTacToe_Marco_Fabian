@@ -5,28 +5,13 @@ public class Main {
         System.out.println("Test");
         System.out.println("test2");
 
-        System.out.println("safsfsafsd");
-        System.out.println("efwef2");
+        System.out.println("Git Test LOG ");
 
         for (int i = 0; i < 5; i++) {
             System.out.println("Ich lerne Java und GitHub");
         }
 
 
-
-
-
-
-
-
-        System.out.println("test1");
-        System.out.println("test1");
-        System.out.println("test1");System.out.println("test1");
-        System.out.println("test1");
-        System.out.println("test1");
-
-
-        System.out.println("sfddfd");
     }
 
 }
