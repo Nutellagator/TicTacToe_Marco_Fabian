@@ -6,6 +6,7 @@ public class Main {
         System.out.println("test2");
 
         System.out.println("Git Test LOG ");
+        System.out.println("Git Test LOG ");
 
         for (int i = 0; i < 5; i++) {
             System.out.println("Ich lerne Java und GitHub");
