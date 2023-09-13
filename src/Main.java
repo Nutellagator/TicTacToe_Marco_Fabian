@@ -11,6 +11,11 @@ public class Main {
         for (int i = 0; i < 5; i++) {
             System.out.println("Ich lerne Java und GitHub");
         }
+
+        System.out.println("test1");
+        System.out.println("test1");System.out.println("test1");
+        System.out.println("test1");
+
     }
 
 }
