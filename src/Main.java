@@ -12,15 +12,21 @@ public class Main {
             System.out.println("Ich lerne Java und GitHub");
         }
 
-        System.out.println("test1");
-        System.out.println("test1");System.out.println("test1");
-        System.out.println("test1");
+
+
+
+
+
+
+
         System.out.println("test1");
         System.out.println("test1");
         System.out.println("test1");System.out.println("test1");
         System.out.println("test1");
         System.out.println("test1");
 
+
+        System.out.println("sfddfd");
     }
 
 }
