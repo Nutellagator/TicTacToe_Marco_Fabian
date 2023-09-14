@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -6,6 +8,16 @@ public class Main {
     char [][] spielBrett = {{'_','|','_','|','_'},{'_', '|', '_','|','_'},{' ','|',' ','|',' '}};
     ausgabeSpielbrett(spielBrett);
     updateSpielbrett(1,1,spielBrett);
+
+// TODO: UpdateTest erfolgreich
+//        updateSpielbrett(2,1,spielBrett);
+//        updateSpielbrett(3,1,spielBrett);
+//        updateSpielbrett(4,2,spielBrett);
+//        updateSpielbrett(5,2,spielBrett);
+//        updateSpielbrett(6,2,spielBrett);
+
+        spielerZug(spielBrett);
+
     }
 
     public static void ausgabeSpielbrett(char [][]spielBrett){  // Spielbrett Parameter
@@ -67,12 +79,20 @@ public class Main {
                 break;
             default:  // Wenn kein Case eintrifft
                 break;
-    }
+        }
 
 
     }
 
+    public static void spielerZug(char [][] spielBrett){
 
+        System.out.println("Nächsten Zug eingeben (1-9)");
+        Scanner eingabe = new Scanner(System.in);
+
+        int spielZug = eingabe.nextInt();
+        updateSpielbrett(spielZug, 1, spielBrett);
+
+    }
 
 
 
