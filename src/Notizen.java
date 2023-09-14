@@ -1,5 +1,9 @@
 /*
 
+1. Methode zum Darstellung ausgeben
+2. 2 For-Schleifen
+    Erste For-Schleife: die erste   - Für jede Zeile
+    Zweite For-Schleife - Für jeden Char in den Zeilen
 
 
 2D Array ( Char Array )
@@ -29,7 +33,12 @@ Im folgenden Beispiel werden alle Elemente im Array „cars “ mithilfe einer �
     String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
     for (String i : cars) {
     System.out.println(i);
+
+1. Methode zum Darstellung ausgeben
+2. 2 For-Schleifen
+    Erste For-Schleife: die erste   - Für jede Zeile
+    Zweite For-Schleife - Für jeden Char in den Zeilen
 ________________________________________________________________________________________________________________________
-}
+
 
  */
