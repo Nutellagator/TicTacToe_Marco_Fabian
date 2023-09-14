@@ -2,6 +2,7 @@ public class Main {
     public static void main(String[] args) {
 
     // Multidimensionales-Array, Darstellung des Spielfeldes
+    // Spielbrett enthält 3 Arrays, jedes Array enthält Wertebereich 0-4 (5 Werte mit Komma getrennt)
     char [][] spielBrett = {{'_','|','_','|','_'},{'_', '|', '_','|','_'},{' ','|',' ','|',' '}};
     ausgabeSpielbrett(spielBrett);
     updateSpielbrett(1,1,spielBrett);
@@ -29,9 +30,41 @@ public class Main {
 
         switch (position){  // Positionen im Feld
             case 1:
-                    spielBrett[0][0] = character;  // character X oder O
-                    ausgabeSpielbrett(spielBrett);
-                    break;
+                spielBrett[0][0] = character;  // character X oder O
+                ausgabeSpielbrett(spielBrett);
+                break;
+            case 2:
+                spielBrett[0][2] = character;
+                ausgabeSpielbrett(spielBrett);
+                break;
+            case 3:
+                spielBrett[0][4] = character;
+                ausgabeSpielbrett(spielBrett);
+                break;
+            case 4:
+                spielBrett[1][0] = character;
+                ausgabeSpielbrett(spielBrett);
+                break;
+            case 5:
+                spielBrett[1][2] = character;
+                ausgabeSpielbrett(spielBrett);
+                break;
+            case 6:
+                spielBrett[1][4] = character;
+                ausgabeSpielbrett(spielBrett);
+                break;
+            case 7:
+                spielBrett[2][0] = character;
+                ausgabeSpielbrett(spielBrett);
+                break;
+            case 8:
+                spielBrett[2][2] = character;
+                ausgabeSpielbrett(spielBrett);
+                break;
+            case 9:
+                spielBrett[2][4] = character;
+                ausgabeSpielbrett(spielBrett);
+                break;
             default:  // Wenn kein Case eintrifft
                 break;
     }
