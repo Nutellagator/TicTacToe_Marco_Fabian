@@ -93,14 +93,23 @@ public class Main {
 
         int spielZug = eingabe.nextInt();
 
+        boolean ergebnis = istFeldSpielbar(spielZug,spielBrett);
 
+        while (ergebnis == false) {  //TODO Kurzschreibweise wiederholen/lernen
+            System.out.println("Feld wurde bereits gewählt");
+            spielZug = eingabe.nextInt();
+            ergebnis = istFeldSpielbar(spielZug, spielBrett);
+        }
+
+        System.out.println("Position " + spielZug + " gewählt.");
         updateSpielbrett(spielZug, 1, spielBrett);
 
     }
-    //Ist das jeweilige Feld noch bespielbar
-    public static boolean istFeldSpielbar(int move, char[][] spielBrett){
 
-        switch (move){
+    //Ist das jeweilige Feld noch bespielbar
+    public static boolean istFeldSpielbar(int spielZug, char[][] spielBrett){
+
+        switch (spielZug){
             case 1:
                 if(spielBrett[0][0] == '_'){
                     return true;
