@@ -4,6 +4,7 @@ public class Main {
     // Multidimensionales-Array, Darstellung des Spielfeldes
     char [][] spielBrett = {{'_','|','_','|','_','|'},{'_','|','_','|','_','|'},{'_','|','_','|','_','|'}};
     ausgabeSpielbrett(spielBrett);
+    updateSpielbrett(1,1,spielBrett);
     }
 
     public static void ausgabeSpielbrett(char [][]spielBrett){  // Spielbrett Parameter
@@ -21,11 +22,22 @@ public class Main {
     public static void updateSpielbrett(int position, int spieler, char [][] spielBrett){
 
         char character;
-        if(spieler == 1){
+        if(spieler == 1){               // Spieler = 1, Computer = 2
             character = 'X';            // ' '  statt " " weil char Datentyp
         } else {
             character = 'O';
         }
+
+        switch (position){
+            case 1:
+                    spielBrett[0][0] = character;
+                    ausgabeSpielbrett(spielBrett);
+                    break;
+            default:  // Wenn kein Case eintrifft
+                break;
+    }
+
+
     }
 
 
