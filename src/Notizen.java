@@ -46,7 +46,9 @@ Im folgenden Beispiel werden alle Elemente im Array „cars “ mithilfe einer �
 4. Switch- Case mit parameter position, spieler
     -> position = Spielerposition
     -> Spieler = das, dass korrekte Zeichen für die jeweils richtigen Spieler gesetzt wird
-5. Spielerzug
+5. Spielerzug = Methode dafür wo der jeweilige Spieler sein ( X oder O ) setzen möchte
+    -> Wenn Spielfeld bereits gesetzt, dann Meldung darüber das ein anderes Spielfeld bespielt werden soll.
+    -> While schleife prüft, dass keine Zahl doppelt vorkommt.
 6. Methode istFeldSpielbar =  checkt ob das jeweilige Feld '_' enthält
 
 

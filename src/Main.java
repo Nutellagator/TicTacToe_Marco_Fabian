@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -15,6 +16,8 @@ public class Main {
 //        updateSpielbrett(4,2,spielBrett);
 //        updateSpielbrett(5,2,spielBrett);
 //        updateSpielbrett(6,2,spielBrett);
+
+// TODO: Wie greifen die Methoden auf die Werte einer anderen Methode zu
 
         spielerZug(spielBrett);
 
@@ -93,12 +96,12 @@ public class Main {
 
         int spielZug = eingabe.nextInt();
 
-        boolean ergebnis = istFeldSpielbar(spielZug,spielBrett);
+        boolean ergebnis = istSpielzugErlaubt(spielZug,spielBrett);
 
         while (ergebnis == false) {  //TODO Kurzschreibweise wiederholen/lernen
             System.out.println("Feld wurde bereits gewählt");
             spielZug = eingabe.nextInt();
-            ergebnis = istFeldSpielbar(spielZug, spielBrett);
+            ergebnis = istSpielzugErlaubt(spielZug, spielBrett);
         }
 
         System.out.println("Position " + spielZug + " gewählt.");
@@ -107,7 +110,7 @@ public class Main {
     }
 
     //Ist das jeweilige Feld noch bespielbar
-    public static boolean istFeldSpielbar(int spielZug, char[][] spielBrett){
+    public static boolean istSpielzugErlaubt(int spielZug, char[][] spielBrett){
 
         switch (spielZug){
             case 1:
@@ -171,6 +174,23 @@ public class Main {
         }
 
     }
+
+    public static void computerZug(char [][] spielBrett){
+
+        Random rand = new Random();
+        int spielZug = rand.nextInt(9)+1;
+
+        boolean ergebnis = istSpielzugErlaubt(spielZug,spielBrett);
+
+        while(ergebnis == false){
+            spielZug = rand.nextInt(9)+1;
+            ergebnis = istSpielzugErlaubt(spielZug, spielBrett);
+        }
+
+        System.out.println("Computer spielZug auf Position: "+ spielZug);
+        updateSpielbrett(spielZug,2,spielBrett);
+    }
+
 
 
 
