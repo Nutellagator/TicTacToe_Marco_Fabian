@@ -15,6 +15,7 @@ public class Main {
 
         boolean gameOver = false;
         boolean nochmalSpielen = true;
+        ausgabeSpielbrett(spielBrett);
 
      //TODO call-by-value & call-by-reference wiederholen
     // Game-Loop + ob nochmal gespielt werden soll
