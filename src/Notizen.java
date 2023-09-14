@@ -43,7 +43,9 @@ Im folgenden Beispiel werden alle Elemente im Array „cars “ mithilfe einer �
     Zweite For-Schleife - Für jeden Char in den Zeilen
 3. Auswahl ob das Game gegen einen Spieler und Computer stattfindet
    Wenn Player-Integer ist nicht = 1, dann ist dieser nicht dran
-4. Switch- Case für die positions
+4. Switch- Case mit parameter position, spieler
+    -> position = Spielerposition
+    -> Spieler = das, dass korrekte Zeichen für die jeweils richtigen Spieler gesetzt wird
 
 
 ________________________________________________________________________________________________________________________
