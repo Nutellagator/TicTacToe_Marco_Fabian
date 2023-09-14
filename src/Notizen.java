@@ -35,9 +35,14 @@ Im folgenden Beispiel werden alle Elemente im Array „cars “ mithilfe einer �
     System.out.println(i);
 
 1. Methode zum Darstellung ausgeben
-2. 2 For-Schleifen
+2. 2 For-Schleifen (for-each)
     Erste For-Schleife: die erste   - Für jede Zeile
     Zweite For-Schleife - Für jeden Char in den Zeilen
+3. Auswahl ob das Game gegen einen Spieler und Computer stattfindet
+   Wenn Player-Integer ist nicht = 1, dann ist dieser nicht dran
+4. Switch- Case für die positions
+
+
 ________________________________________________________________________________________________________________________
 
 
