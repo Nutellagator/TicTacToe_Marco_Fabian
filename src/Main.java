@@ -32,17 +32,17 @@ public class Main {
                 break;
             }
         }
-            System.out.println("Player Score: " +spielerPunkte);
-            System.out.println("Computer Score: "+ computerPunkte);
-            System.out.println("Would you like to play again? Y/N");
+            System.out.println("Spieler Punkte: " +spielerPunkte);
+            System.out.println("Computer Punkte: "+ computerPunkte);
+            System.out.println("Möchtest du nochmal spielen?  (J / N)");
             eingabe.nextLine();
             String ergebnis = eingabe.nextLine();
 
             switch (ergebnis){
-                case "Y":
-                case "y":
+                case "J":
+                case "j":
                     nochmalSpielen = true;
-                    System.out.println("Dope! Let's play again");
+                    System.out.println("Ein neues Game startet!");
                     resetSpielbrett(spielBrett);
                     gameOver = false;
                     ausgabeSpielbrett(spielBrett);
@@ -51,7 +51,7 @@ public class Main {
                 case "N":
                 case "n":
                     nochmalSpielen = false;
-                    System.out.println("Thanks for playing");
+                    System.out.println("Bis zum nächsten mal!");
                     break;
                 default:
                     break;
