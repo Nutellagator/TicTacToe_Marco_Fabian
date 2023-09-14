@@ -175,23 +175,20 @@ public class Main {
 
     }
 
-    public static void computerZug(char [][] spielBrett){
+    public static void computerZug(char [][] spielBrett) {
 
         Random rand = new Random();
-        int spielZug = rand.nextInt(9)+1;
 
-        boolean ergebnis = istSpielzugErlaubt(spielZug,spielBrett);
 
-        while(ergebnis == false){
-            spielZug = rand.nextInt(9)+1;
+        boolean ergebnis;
+        int spielZug;
+        do {
+            spielZug = rand.nextInt(9) + 1;
             ergebnis = istSpielzugErlaubt(spielZug, spielBrett);
-        }
+        } while (ergebnis == false);
 
-        System.out.println("Computer spielZug auf Position: "+ spielZug);
-        updateSpielbrett(spielZug,2,spielBrett);
+        System.out.println("Computer spielZugd at position " + spielZug);
+        updateSpielbrett(spielZug, 2, spielBrett);
     }
-
-
-
 
 }

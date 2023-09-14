@@ -50,6 +50,7 @@ Im folgenden Beispiel werden alle Elemente im Array „cars “ mithilfe einer �
     -> Wenn Spielfeld bereits gesetzt, dann Meldung darüber das ein anderes Spielfeld bespielt werden soll.
     -> While schleife prüft, dass keine Zahl doppelt vorkommt.
 6. Methode istFeldSpielbar =  checkt ob das jeweilige Feld '_' enthält
+7. Methode computerZug überarbeitet
 
 
 ________________________________________________________________________________________________________________________
