@@ -27,9 +27,9 @@ public class Main {
             character = 'O';
         }
 
-        switch (position){
+        switch (position){  // Positionen im Feld
             case 1:
-                    spielBrett[0][0] = character;
+                    spielBrett[0][0] = character;  // character X oder O
                     ausgabeSpielbrett(spielBrett);
                     break;
             default:  // Wenn kein Case eintrifft
