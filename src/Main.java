@@ -2,13 +2,24 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+
+
     public static void main(String[] args) {
+
 
     // Multidimensionales-Array, Darstellung des Spielfeldes
     // Spielbrett enthält 3 Arrays, jedes Array enthält Wertebereich 0-4 (5 Werte mit Komma getrennt)
-    char [][] spielBrett = {{'_','|','_','|','_'},{'_', '|', '_','|','_'},{' ','|',' ','|',' '}};
-    ausgabeSpielbrett(spielBrett);
-    updateSpielbrett(1,1,spielBrett);
+    char [][] spielBrett = {{'_','|','_','|','_'},{'_', '|', '_','|','_'},{' ','|',' ','|',' '}};  // Letztes Array leerzeichen wegen Augenschmaus
+
+        boolean gameOver = false;
+        while (gameOver == false){
+            spielerZug(spielBrett);
+            gameOver = hatGewonnen(spielBrett);
+            if (gameOver == true){
+                break;
+            }
+        }
+
 
 // TODO: UpdateTest erfolgreich
 //        updateSpielbrett(2,1,spielBrett);
@@ -19,7 +30,10 @@ public class Main {
 
 // TODO: Wie greifen die Methoden auf die Werte einer anderen Methode zu
 
+        /*spielerZug(spielBrett);
+        computerZug(spielBrett);
         spielerZug(spielBrett);
+        computerZug(spielBrett);*/
 
     }
     //Methode um das Spielfeld mit den Werten des Arrays zu erzeugen
@@ -151,7 +165,7 @@ public class Main {
                     return false;
                 }
             case 7:
-                if(spielBrett[2][0] == ' '){
+                if(spielBrett[2][0] == ' '){        // Letztes Array leerzeichen wegen Augenschmaus
                     return true;
                 } else{
                     return false;
@@ -175,10 +189,10 @@ public class Main {
 
     }
 
+    //Random Züge Computer
     public static void computerZug(char [][] spielBrett) {
 
         Random rand = new Random();
-
 
         boolean ergebnis;
         int spielZug;
@@ -187,8 +201,91 @@ public class Main {
             ergebnis = istSpielzugErlaubt(spielZug, spielBrett);
         } while (ergebnis == false);
 
-        System.out.println("Computer spielZugd at position " + spielZug);
+        System.out.println("Computer spielZug at position " + spielZug);
         updateSpielbrett(spielZug, 2, spielBrett);
     }
 
+    public static boolean hatGewonnen(char [][] spielBrett){
+
+        //Horizontal
+        if(spielBrett[0][0] == 'X'&& spielBrett[0][2] == 'X' && spielBrett [0][4] == 'X' ){
+            System.out.println("Spieler gewinnt");
+            return true;
+        }
+        if(spielBrett[0][0] == 'O'&& spielBrett[0][2] == 'O' && spielBrett [0][4] == 'O' ){
+            System.out.println("Computer Gewinnt");
+            return true;
+        }
+        if(spielBrett[1][0] == 'X'&& spielBrett[1][2] == 'X' && spielBrett [1][4] == 'X' ){
+            System.out.println("Spieler gewinnt");
+            return true;
+        }
+        if(spielBrett[1][0] == 'O'&& spielBrett[1][2] == 'O' && spielBrett [1][4] == 'O' ){
+            System.out.println("Computer Gewinnt");
+            return true;
+        }
+        if(spielBrett[2][0] == 'X'&& spielBrett[2][2] == 'X' && spielBrett [2][4] == 'X' ){
+            System.out.println("Spieler gewinnt");
+            return true;
+        }
+        if(spielBrett[2][0] == 'O'&& spielBrett[2][2] == 'O' && spielBrett [2][4] == 'O' ) {
+            System.out.println("Computer Gewinnt");
+            return true;
+        }
+
+        //Vertikal
+        if(spielBrett[0][0] == 'X'&& spielBrett[1][0] == 'X' && spielBrett [2][0] == 'X' ){
+            System.out.println("Spieler gewinnt");
+            return true;
+        }
+        if(spielBrett[0][0] == 'O'&& spielBrett[1][0] == 'O' && spielBrett [2][0] == 'O' ){
+            System.out.println("Computer Gewinnt");
+            return true;
+        }
+
+        if(spielBrett[0][2] == 'X'&& spielBrett[1][2] == 'X' && spielBrett [2][2] == 'X' ){
+            System.out.println("Spieler gewinnt");
+            return true;
+        }
+        if(spielBrett[0][2] == 'O'&& spielBrett[1][2] == 'O' && spielBrett [2][2] == 'O' ){
+            System.out.println("Computer Gewinnt");
+            return true;
+        }
+
+        if(spielBrett[0][4] == 'X'&& spielBrett[1][4] == 'X' && spielBrett [2][4] == 'X' ){
+            System.out.println("Spieler gewinnt");
+            return true;
+        }
+        if(spielBrett[0][4] == 'O'&& spielBrett[1][4] == 'O' && spielBrett [2][4] == 'O' ){
+            System.out.println("Computer Gewinnt");
+            return true;
+        }
+
+        //Diagonal
+        if(spielBrett[0][0] == 'X'&& spielBrett[1][2] == 'X' && spielBrett [2][4] == 'X' ){
+            System.out.println("Spieler gewinnt");
+            return true;
+        }
+        if(spielBrett[0][0] == 'O'&& spielBrett[1][2] == 'O' && spielBrett [2][4] == 'O' ){
+            System.out.println("Computer Gewinnt");
+            return true;
+        }
+
+        if(spielBrett[2][0] == 'X'&& spielBrett[1][2] == 'X' && spielBrett [0][4] == 'X' ){
+            System.out.println("Spieler gewinnt");
+            return true;
+        }
+        if(spielBrett[2][0] == 'O'&& spielBrett[1][2] == 'O' && spielBrett [0][4] == 'O' ){
+            System.out.println("Computer Gewinnt");
+            return true;
+        }
+
+        //Unentschieden   (Wenn die Felder nichtmehr leer sind)
+        if(spielBrett[0][0] != '_' && spielBrett[0][2] != '_' && spielBrett[0][4] != '_' && spielBrett[1][0] !='_'&&
+                spielBrett[1][2] != '_' && spielBrett[1][4] != '_' && spielBrett[2][0] != ' ' && spielBrett[2][2] != ' ' && spielBrett[2][4] != ' '){
+            System.out.println("Unentschieden");
+            return true;
+        }
+        return false;
+    }
 }
