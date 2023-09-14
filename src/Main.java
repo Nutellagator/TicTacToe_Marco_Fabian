@@ -3,7 +3,8 @@ import java.util.Scanner;
 
 public class Main {
 
-
+    static int spielerPunkte;
+    static int computerPunkte;
     public static void main(String[] args) {
 
 
@@ -210,73 +211,89 @@ public class Main {
         //Horizontal
         if(spielBrett[0][0] == 'X'&& spielBrett[0][2] == 'X' && spielBrett [0][4] == 'X' ){
             System.out.println("Spieler gewinnt");
+            spielerPunkte++;
             return true;
         }
         if(spielBrett[0][0] == 'O'&& spielBrett[0][2] == 'O' && spielBrett [0][4] == 'O' ){
             System.out.println("Computer Gewinnt");
+            computerPunkte++;
             return true;
         }
         if(spielBrett[1][0] == 'X'&& spielBrett[1][2] == 'X' && spielBrett [1][4] == 'X' ){
             System.out.println("Spieler gewinnt");
+            spielerPunkte++;
             return true;
         }
         if(spielBrett[1][0] == 'O'&& spielBrett[1][2] == 'O' && spielBrett [1][4] == 'O' ){
             System.out.println("Computer Gewinnt");
+            computerPunkte++;
             return true;
         }
         if(spielBrett[2][0] == 'X'&& spielBrett[2][2] == 'X' && spielBrett [2][4] == 'X' ){
             System.out.println("Spieler gewinnt");
+            spielerPunkte++;
             return true;
         }
         if(spielBrett[2][0] == 'O'&& spielBrett[2][2] == 'O' && spielBrett [2][4] == 'O' ) {
             System.out.println("Computer Gewinnt");
+            computerPunkte++;
             return true;
         }
 
         //Vertikal
         if(spielBrett[0][0] == 'X'&& spielBrett[1][0] == 'X' && spielBrett [2][0] == 'X' ){
             System.out.println("Spieler gewinnt");
+            spielerPunkte++;
             return true;
         }
         if(spielBrett[0][0] == 'O'&& spielBrett[1][0] == 'O' && spielBrett [2][0] == 'O' ){
             System.out.println("Computer Gewinnt");
+            computerPunkte++;
             return true;
         }
 
         if(spielBrett[0][2] == 'X'&& spielBrett[1][2] == 'X' && spielBrett [2][2] == 'X' ){
             System.out.println("Spieler gewinnt");
+            spielerPunkte++;
             return true;
         }
         if(spielBrett[0][2] == 'O'&& spielBrett[1][2] == 'O' && spielBrett [2][2] == 'O' ){
             System.out.println("Computer Gewinnt");
+            computerPunkte++;
             return true;
         }
 
         if(spielBrett[0][4] == 'X'&& spielBrett[1][4] == 'X' && spielBrett [2][4] == 'X' ){
             System.out.println("Spieler gewinnt");
+            spielerPunkte++;
             return true;
         }
         if(spielBrett[0][4] == 'O'&& spielBrett[1][4] == 'O' && spielBrett [2][4] == 'O' ){
             System.out.println("Computer Gewinnt");
+            computerPunkte++;
             return true;
         }
 
         //Diagonal
         if(spielBrett[0][0] == 'X'&& spielBrett[1][2] == 'X' && spielBrett [2][4] == 'X' ){
             System.out.println("Spieler gewinnt");
+            spielerPunkte++;
             return true;
         }
         if(spielBrett[0][0] == 'O'&& spielBrett[1][2] == 'O' && spielBrett [2][4] == 'O' ){
             System.out.println("Computer Gewinnt");
+            computerPunkte++;
             return true;
         }
 
         if(spielBrett[2][0] == 'X'&& spielBrett[1][2] == 'X' && spielBrett [0][4] == 'X' ){
             System.out.println("Spieler gewinnt");
+            spielerPunkte++;
             return true;
         }
         if(spielBrett[2][0] == 'O'&& spielBrett[1][2] == 'O' && spielBrett [0][4] == 'O' ){
             System.out.println("Computer Gewinnt");
+            computerPunkte++;
             return true;
         }
 
