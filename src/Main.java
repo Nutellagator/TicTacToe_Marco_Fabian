@@ -5,6 +5,7 @@ public class Main {
 
     static int spielerPunkte;
     static int computerPunkte;
+    static Scanner eingabe = new Scanner(System.in);
     public static void main(String[] args) {
 
 
@@ -13,14 +14,51 @@ public class Main {
     char [][] spielBrett = {{'_','|','_','|','_'},{'_', '|', '_','|','_'},{' ','|',' ','|',' '}};  // Letztes Array leerzeichen wegen Augenschmaus
 
         boolean gameOver = false;
-        while (gameOver == false){
+        boolean nochmalSpielen = true;
+
+     //TODO call-by-value & call-by-reference wiederholen
+    // Game-Loop + ob nochmal gespielt werden soll
+    while(nochmalSpielen == true) {
+        while (gameOver == false) { //Game-Loop
             spielerZug(spielBrett);
             gameOver = hatGewonnen(spielBrett);
-            if (gameOver == true){
+            if (gameOver == true) {
+                break;
+            }
+
+            computerZug(spielBrett);
+            gameOver = hatGewonnen(spielBrett);
+            if (gameOver == true) {
                 break;
             }
         }
+            System.out.println("Player Score: " +spielerPunkte);
+            System.out.println("Computer Score: "+ computerPunkte);
+            System.out.println("Would you like to play again? Y/N");
+            eingabe.nextLine();
+            String ergebnis = eingabe.nextLine();
 
+            switch (ergebnis){
+                case "Y":
+                case "y":
+                    nochmalSpielen = true;
+                    System.out.println("Dope! Let's play again");
+                    resetSpielbrett(spielBrett);
+                    gameOver = false;
+                    ausgabeSpielbrett(spielBrett);
+                    break;
+
+                case "N":
+                case "n":
+                    nochmalSpielen = false;
+                    System.out.println("Thanks for playing");
+                    break;
+                default:
+                    break;
+            }
+
+        }
+    }
 
 // TODO: UpdateTest erfolgreich
 //        updateSpielbrett(2,1,spielBrett);
@@ -36,7 +74,7 @@ public class Main {
         spielerZug(spielBrett);
         computerZug(spielBrett);*/
 
-    }
+
     //Methode um das Spielfeld mit den Werten des Arrays zu erzeugen
     public static void ausgabeSpielbrett(char [][]spielBrett){  // Spielbrett Parameter
 
@@ -107,7 +145,7 @@ public class Main {
     public static void spielerZug(char [][] spielBrett){
 
         System.out.println("Nächsten Zug eingeben (1-9)");
-        Scanner eingabe = new Scanner(System.in);
+
 
         int spielZug = eingabe.nextInt();
 
@@ -297,12 +335,25 @@ public class Main {
             return true;
         }
 
-        //Unentschieden   (Wenn die Felder nichtmehr leer sind)
+        //Unentschieden  (Wenn die Felder nichtmehr leer sind)
         if(spielBrett[0][0] != '_' && spielBrett[0][2] != '_' && spielBrett[0][4] != '_' && spielBrett[1][0] !='_'&&
                 spielBrett[1][2] != '_' && spielBrett[1][4] != '_' && spielBrett[2][0] != ' ' && spielBrett[2][2] != ' ' && spielBrett[2][4] != ' '){
             System.out.println("Unentschieden");
             return true;
         }
         return false;
+    }
+    // Wenn nochmal gespielt werden soll, dann wird Spielfeld (Arrays) zurückgesetzt
+    public static void resetSpielbrett(char [][] spielBrett){
+        spielBrett[0][0] = '_';
+        spielBrett[0][2] = '_';
+        spielBrett[0][4] = '_';
+        spielBrett[1][0] = '_';
+        spielBrett[1][2] = '_';
+        spielBrett[1][4] = '_';
+        spielBrett[2][0] = ' ';
+        spielBrett[2][2] = ' ';
+        spielBrett[2][4] = ' ';
+
     }
 }
