@@ -19,7 +19,7 @@ public class Main {
         spielerZug(spielBrett);
 
     }
-
+    //Methode um das Spielfeld mit den Werten des Arrays zu erzeugen
     public static void ausgabeSpielbrett(char [][]spielBrett){  // Spielbrett Parameter
 
         for(char[] row : spielBrett){  // (for-each) for- Schleife für Array's...for (type variableName : arrayName)
@@ -33,6 +33,7 @@ public class Main {
 
     public static void updateSpielbrett(int position, int spieler, char [][] spielBrett){
 
+        // das für den Spieler der gerade am Zug ist, das richtige Symbol eingesetzt wird ( X oder O )
         char character;
         if(spieler == 1){               // Spieler = 1, Computer = 2
             character = 'X';            // ' '  statt " " weil char Datentyp
@@ -40,6 +41,7 @@ public class Main {
             character = 'O';
         }
 
+        // Um zu bestimmen an welche Stelle im Spielfeld (Array) das jeweilige Zeichen gesetzt wird ( X oder O )
         switch (position){  // Positionen im Feld
             case 1:
                 spielBrett[0][0] = character;  // character X oder O
@@ -83,14 +85,81 @@ public class Main {
 
 
     }
-
+    //wo der jeweilige Spieler sein Zeichen (X oder O) setzen möchte
     public static void spielerZug(char [][] spielBrett){
 
         System.out.println("Nächsten Zug eingeben (1-9)");
         Scanner eingabe = new Scanner(System.in);
 
         int spielZug = eingabe.nextInt();
+
+
         updateSpielbrett(spielZug, 1, spielBrett);
+
+    }
+    //Ist das jeweilige Feld noch bespielbar
+    public static boolean istFeldSpielbar(int move, char[][] spielBrett){
+
+        switch (move){
+            case 1:
+                if(spielBrett[0][0] == '_'){
+                    return true;
+                } else{
+                    return false;
+                }
+            case 2:
+                if(spielBrett[0][2] == '_'){
+                    return true;
+                } else{
+                    return false;
+                }
+            case 3:
+                if(spielBrett[0][4] == '_'){
+                    return true;
+                } else{
+                    return false;
+                }
+
+            case 4:
+                if(spielBrett[1][0] == '_'){
+                    return true;
+                } else{
+                    return false;
+                }
+            case 5:
+                if(spielBrett[1][2] == '_'){
+                    return true;
+                } else{
+                    return false;
+                }
+            case 6:
+                if(spielBrett[1][4] == '_'){
+                    return true;
+                } else{
+                    return false;
+                }
+            case 7:
+                if(spielBrett[2][0] == ' '){
+                    return true;
+                } else{
+                    return false;
+                }
+            case 8:
+                if(spielBrett[2][2] == ' '){
+                    return true;
+                } else{
+                    return false;
+                }
+            case 9:
+                if(spielBrett[2][4] == ' '){
+                    return true;
+                } else{
+                    return false;
+                }
+
+            default:
+                return false;
+        }
 
     }
 

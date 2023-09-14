@@ -46,6 +46,8 @@ Im folgenden Beispiel werden alle Elemente im Array „cars “ mithilfe einer �
 4. Switch- Case mit parameter position, spieler
     -> position = Spielerposition
     -> Spieler = das, dass korrekte Zeichen für die jeweils richtigen Spieler gesetzt wird
+5. Spielerzug
+6. Methode istFeldSpielbar =  checkt ob das jeweilige Feld '_' enthält
 
 
 ________________________________________________________________________________________________________________________
