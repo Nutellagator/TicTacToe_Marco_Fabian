@@ -1,3 +1,6 @@
+
+public class Notizen {
+}
 /*
 
 1. Methode zum Darstellung ausgeben
