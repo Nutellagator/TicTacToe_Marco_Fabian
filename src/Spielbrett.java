@@ -8,17 +8,11 @@ public class Spielbrett {
         return spielerPunkte;
     }
 
-    public static void setSpielerPunkte(int spielerPunkte) {
-        Spielbrett.spielerPunkte = spielerPunkte;
-    }
 
     public static int getComputerPunkte() {
         return computerPunkte;
     }
 
-    public static void setComputerPunkte(int computerPunkte) {
-        Spielbrett.computerPunkte = computerPunkte;
-    }
 
     private static int spielerPunkte;
     private static int computerPunkte;
