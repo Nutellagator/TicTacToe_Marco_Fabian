@@ -3,8 +3,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    static int spielerPunkte;
-    static int computerPunkte;
+
 
     public static void main(String[] args) {
 
@@ -23,19 +22,19 @@ public class Main {
             while (gameOver == false) { //Game-Loop
 
                 Spieler.spielerZug(spielbrett1.getSpielBrett());
-                gameOver = hatGewonnen(spielbrett1.getSpielBrett());
+                gameOver = Spielbrett.hatGewonnen(spielbrett1.getSpielBrett());
                 if (gameOver == true) {
                     break;
                 }
 
                 Computer.computerZug(spielbrett1.getSpielBrett());
-                gameOver = hatGewonnen(spielbrett1.getSpielBrett());
+                gameOver = Spielbrett.hatGewonnen(spielbrett1.getSpielBrett());
                 if (gameOver == true) {
                     break;
                 }
             }
-            System.out.println("Spieler Punkte: " + spielerPunkte);
-            System.out.println("Computer Punkte: " + computerPunkte);
+            System.out.println("Spieler Punkte: " + Spielbrett.getSpielerPunkte());
+            System.out.println("Computer Punkte: " + Spielbrett.getComputerPunkte());
             System.out.println("Möchtest du nochmal spielen?  (J / N)");
             //eingabe.nextLine();
             String ergebnis = eingabe.nextLine();
@@ -76,105 +75,7 @@ public class Main {
         spielerZug(spielBrett);
         computerZug(spielBrett);*/
 
-    public static boolean hatGewonnen(char[][] spielBrett) {
 
-        //Horizontal
-        if (spielBrett[0][0] == 'X' && spielBrett[0][2] == 'X' && spielBrett[0][4] == 'X') {
-            System.out.println("Spieler gewinnt");
-            spielerPunkte++;
-            return true;
-        }
-        if (spielBrett[0][0] == 'O' && spielBrett[0][2] == 'O' && spielBrett[0][4] == 'O') {
-            System.out.println("Computer Gewinnt");
-            computerPunkte++;
-            return true;
-        }
-        if (spielBrett[1][0] == 'X' && spielBrett[1][2] == 'X' && spielBrett[1][4] == 'X') {
-            System.out.println("Spieler gewinnt");
-            spielerPunkte++;
-            return true;
-        }
-        if (spielBrett[1][0] == 'O' && spielBrett[1][2] == 'O' && spielBrett[1][4] == 'O') {
-            System.out.println("Computer Gewinnt");
-            computerPunkte++;
-            return true;
-        }
-        if (spielBrett[2][0] == 'X' && spielBrett[2][2] == 'X' && spielBrett[2][4] == 'X') {
-            System.out.println("Spieler gewinnt");
-            spielerPunkte++;
-            return true;
-        }
-        if (spielBrett[2][0] == 'O' && spielBrett[2][2] == 'O' && spielBrett[2][4] == 'O') {
-            System.out.println("Computer Gewinnt");
-            computerPunkte++;
-            return true;
-        }
-
-        //Vertikal
-        if (spielBrett[0][0] == 'X' && spielBrett[1][0] == 'X' && spielBrett[2][0] == 'X') {
-            System.out.println("Spieler gewinnt");
-            spielerPunkte++;
-            return true;
-        }
-        if (spielBrett[0][0] == 'O' && spielBrett[1][0] == 'O' && spielBrett[2][0] == 'O') {
-            System.out.println("Computer Gewinnt");
-            computerPunkte++;
-            return true;
-        }
-
-        if (spielBrett[0][2] == 'X' && spielBrett[1][2] == 'X' && spielBrett[2][2] == 'X') {
-            System.out.println("Spieler gewinnt");
-            spielerPunkte++;
-            return true;
-        }
-        if (spielBrett[0][2] == 'O' && spielBrett[1][2] == 'O' && spielBrett[2][2] == 'O') {
-            System.out.println("Computer Gewinnt");
-            computerPunkte++;
-            return true;
-        }
-
-        if (spielBrett[0][4] == 'X' && spielBrett[1][4] == 'X' && spielBrett[2][4] == 'X') {
-            System.out.println("Spieler gewinnt");
-            spielerPunkte++;
-            return true;
-        }
-        if (spielBrett[0][4] == 'O' && spielBrett[1][4] == 'O' && spielBrett[2][4] == 'O') {
-            System.out.println("Computer Gewinnt");
-            computerPunkte++;
-            return true;
-        }
-
-        //Diagonal
-        if (spielBrett[0][0] == 'X' && spielBrett[1][2] == 'X' && spielBrett[2][4] == 'X') {
-            System.out.println("Spieler gewinnt");
-            spielerPunkte++;
-            return true;
-        }
-        if (spielBrett[0][0] == 'O' && spielBrett[1][2] == 'O' && spielBrett[2][4] == 'O') {
-            System.out.println("Computer Gewinnt");
-            computerPunkte++;
-            return true;
-        }
-
-        if (spielBrett[2][0] == 'X' && spielBrett[1][2] == 'X' && spielBrett[0][4] == 'X') {
-            System.out.println("Spieler gewinnt");
-            spielerPunkte++;
-            return true;
-        }
-        if (spielBrett[2][0] == 'O' && spielBrett[1][2] == 'O' && spielBrett[0][4] == 'O') {
-            System.out.println("Computer Gewinnt");
-            computerPunkte++;
-            return true;
-        }
-
-        //Unentschieden  (Wenn die Felder nichtmehr leer sind)
-        if (spielBrett[0][0] != '_' && spielBrett[0][2] != '_' && spielBrett[0][4] != '_' && spielBrett[1][0] != '_' &&
-                spielBrett[1][2] != '_' && spielBrett[1][4] != '_' && spielBrett[2][0] != ' ' && spielBrett[2][2] != ' ' && spielBrett[2][4] != ' ') {
-            System.out.println("Unentschieden");
-            return true;
-        }
-        return false;
-    }
 
     // Wenn nochmal gespielt werden soll, dann wird Spielfeld (Arrays) zurückgesetzt
     public static void resetSpielbrett(char[][] spielBrett) {
