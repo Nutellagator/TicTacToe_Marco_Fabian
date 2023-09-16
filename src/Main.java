@@ -13,7 +13,7 @@ public class Main {
 
         boolean gameOver = false;
         boolean nochmalSpielen = true;
-        ausgabeSpielbrett(s1.getSpielBrett());
+        Spielbrett.ausgabeSpielbrett(s1.getSpielBrett());
 
      //TODO call-by-value & call-by-reference wiederholen
     // Game-Loop + ob nochmal gespielt werden soll
@@ -44,7 +44,7 @@ public class Main {
                     System.out.println("Ein neues Game startet!");
                     resetSpielbrett(s1.getSpielBrett());
                     gameOver = false;
-                    ausgabeSpielbrett(s1.getSpielBrett());
+                    Spielbrett.ausgabeSpielbrett(s1.getSpielBrett());
                     break;
 
                 case "N":
@@ -74,19 +74,6 @@ public class Main {
         computerZug(spielBrett);*/
 
 
-    //Methode um das Spielfeld mit den Werten des Arrays zu erzeugen
-    // { 1. {'_','|','_','|','_'}, 2. {'_', '|', '_','|','_'}, 3. {' ','|',' ','|',' '}};
-    public static void ausgabeSpielbrett(char [][]spielBrett){  // Spielbrett Parameter
-
-        for(char[] row : spielBrett){  // (for-each) for- Schleife für Array's...for (type variableName : arrayName)
-            for(char c : row){              // Zählt die Indexe(Inhalte, 3x5 Inhalte) - Erst Zeile, dann Spalte = 2D-char-Array
-                System.out.print(c);        // print, nicht println
-            }
-            System.out.println(); // Erste for Schleife
-
-        }
-    }
-
     public static void updateSpielbrett(int position, int spieler, char [][] spielBrett){
 
         // das für den Spieler der gerade am Zug ist, das richtige Symbol eingesetzt wird ( X oder O )
@@ -101,39 +88,39 @@ public class Main {
         switch (position){  // Positionen im Feld
             case 1:
                 spielBrett[0][0] = character;  // character X oder O
-                ausgabeSpielbrett(spielBrett);
+                Spielbrett.ausgabeSpielbrett(spielBrett);
                 break;
             case 2:
                 spielBrett[0][2] = character;
-                ausgabeSpielbrett(spielBrett);
+                Spielbrett.ausgabeSpielbrett(spielBrett);
                 break;
             case 3:
                 spielBrett[0][4] = character;
-                ausgabeSpielbrett(spielBrett);
+                Spielbrett.ausgabeSpielbrett(spielBrett);
                 break;
             case 4:
                 spielBrett[1][0] = character;
-                ausgabeSpielbrett(spielBrett);
+                Spielbrett.ausgabeSpielbrett(spielBrett);
                 break;
             case 5:
                 spielBrett[1][2] = character;
-                ausgabeSpielbrett(spielBrett);
+                Spielbrett.ausgabeSpielbrett(spielBrett);
                 break;
             case 6:
                 spielBrett[1][4] = character;
-                ausgabeSpielbrett(spielBrett);
+                Spielbrett.ausgabeSpielbrett(spielBrett);
                 break;
             case 7:
                 spielBrett[2][0] = character;
-                ausgabeSpielbrett(spielBrett);
+                Spielbrett.ausgabeSpielbrett(spielBrett);
                 break;
             case 8:
                 spielBrett[2][2] = character;
-                ausgabeSpielbrett(spielBrett);
+                Spielbrett.ausgabeSpielbrett(spielBrett);
                 break;
             case 9:
                 spielBrett[2][4] = character;
-                ausgabeSpielbrett(spielBrett);
+                Spielbrett.ausgabeSpielbrett(spielBrett);
                 break;
             default:  // Wenn kein Case eintrifft
                 break;
@@ -145,7 +132,6 @@ public class Main {
     public static void spielerZug(char [][] spielBrett){
 
         System.out.println("Nächsten Zug eingeben (1-9)");
-
 
         int spielZug = eingabe.nextInt();
 
