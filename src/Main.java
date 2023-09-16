@@ -11,6 +11,9 @@ public class Main {
 
         Spielbrett spielbrett1 = new Spielbrett();
         Spieler spieler1 = new Spieler();
+        Spieler computer = new Computer();
+        Spieler spieler2 = new Spieler();
+
 
 
         boolean gameOver = false;
@@ -23,20 +26,23 @@ public class Main {
             while (gameOver == false) { //Game-Loop
 
                 Spieler.spielerZug(spielbrett1.getSpielBrett());
+                spielbrett1.setRunden(spielbrett1.getRunden()+1); //!TEST! Spiel nach 8 Runden Unentschieden -> Spielbrett.hatGewonnen: || runden == 8)
                 gameOver = Spielbrett.hatGewonnen(spielbrett1.getSpielBrett());
                 if (gameOver == true) {
                     spieler1.setPunkte(spieler1.getPunkte()+1);
+                    System.out.println("Spieler Punkte: " + spieler1.getPunkte());
                     break;
                 }
 
                 Computer.computerZug(spielbrett1.getSpielBrett());
+                spielbrett1.setRunden(spielbrett1.getRunden()+1);
                 gameOver = Spielbrett.hatGewonnen(spielbrett1.getSpielBrett());
                 if (gameOver == true) {
-                    spieler1.setPunkte(spieler1.getPunkte()+1);
+                    computer.setPunkte(computer.getPunkte()+1);
                     break;
                 }
             }
-            System.out.println("Spieler Punkte: " + spieler1.getPunkte());
+
             //System.out.println("Computer Punkte: " + Spielbrett.getComputerPunkte());
             System.out.println("Möchtest du nochmal spielen?  (J / N)");
             //eingabe.nextLine();
