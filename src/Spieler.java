@@ -1,7 +1,17 @@
 import java.util.Scanner;
 
 public class Spieler {
+
+    private int Punkte = 0;
     static Scanner eingabe = new Scanner(System.in);
+
+    public int getPunkte() {
+        return Punkte;
+    }
+
+    public void setPunkte(int punkte) {
+        Punkte = punkte;
+    }
 
     //wo der jeweilige Spieler sein Zeichen (X oder O) setzen möchte
     public static void spielerZug(char[][] spielBrett) {

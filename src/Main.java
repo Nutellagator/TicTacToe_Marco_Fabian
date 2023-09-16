@@ -12,6 +12,7 @@ public class Main {
         Spielbrett spielbrett1 = new Spielbrett();
         Spieler spieler1 = new Spieler();
 
+
         boolean gameOver = false;
         boolean nochmalSpielen = true;
         Spielbrett.ausgabeSpielbrett(spielbrett1.getSpielBrett());
@@ -24,17 +25,19 @@ public class Main {
                 Spieler.spielerZug(spielbrett1.getSpielBrett());
                 gameOver = Spielbrett.hatGewonnen(spielbrett1.getSpielBrett());
                 if (gameOver == true) {
+                    spieler1.setPunkte(spieler1.getPunkte()+1);
                     break;
                 }
 
                 Computer.computerZug(spielbrett1.getSpielBrett());
                 gameOver = Spielbrett.hatGewonnen(spielbrett1.getSpielBrett());
                 if (gameOver == true) {
+                    spieler1.setPunkte(spieler1.getPunkte()+1);
                     break;
                 }
             }
-            System.out.println("Spieler Punkte: " + Spielbrett.getSpielerPunkte());
-            System.out.println("Computer Punkte: " + Spielbrett.getComputerPunkte());
+            System.out.println("Spieler Punkte: " + spieler1.getPunkte());
+            //System.out.println("Computer Punkte: " + Spielbrett.getComputerPunkte());
             System.out.println("Möchtest du nochmal spielen?  (J / N)");
             //eingabe.nextLine();
             String ergebnis = eingabe.nextLine();
