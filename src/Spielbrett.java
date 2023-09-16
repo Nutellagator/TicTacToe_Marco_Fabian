@@ -3,19 +3,18 @@ public class Spielbrett {
     // Multidimensionales-Array, Darstellung des Spielfeldes
     // Spielbrett enthält 3 Arrays, jedes Array enthält Wertebereich 0-4 (5 Werte mit Komma getrennt)
     private char [][] spielBrett = {{'_','|','_','|','_'},{'_', '|', '_','|','_'},{' ','|',' ','|',' '}};  // Letztes Array leerzeichen wegen Augenschmaus
+    private static int spielerPunkte;
+    private static int computerPunkte;
 
+    //Methoden
     public static int getSpielerPunkte() {
         return spielerPunkte;
     }
-
 
     public static int getComputerPunkte() {
         return computerPunkte;
     }
 
-
-    private static int spielerPunkte;
-    private static int computerPunkte;
 
     public char[][] getSpielBrett() {
         return spielBrett;
@@ -188,5 +187,19 @@ public class Spielbrett {
             return true;
         }
         return false;
+    }
+
+    // Wenn nochmal gespielt werden soll, dann wird Spielfeld (Arrays) zurückgesetzt
+    public static void resetSpielbrett(char[][] spielBrett) {
+        spielBrett[0][0] = '_';
+        spielBrett[0][2] = '_';
+        spielBrett[0][4] = '_';
+        spielBrett[1][0] = '_';
+        spielBrett[1][2] = '_';
+        spielBrett[1][4] = '_';
+        spielBrett[2][0] = ' ';
+        spielBrett[2][2] = ' ';
+        spielBrett[2][4] = ' ';
+
     }
 }

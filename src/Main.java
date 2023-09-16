@@ -44,7 +44,7 @@ public class Main {
                 case "j":
                     nochmalSpielen = true;
                     System.out.println("Ein neues Game startet!");
-                    resetSpielbrett(spielbrett1.getSpielBrett());
+                    Spielbrett.resetSpielbrett(spielbrett1.getSpielBrett());
                     gameOver = false;
                     Spielbrett.ausgabeSpielbrett(spielbrett1.getSpielBrett());
                     break;
@@ -76,18 +76,4 @@ public class Main {
         computerZug(spielBrett);*/
 
 
-
-    // Wenn nochmal gespielt werden soll, dann wird Spielfeld (Arrays) zurückgesetzt
-    public static void resetSpielbrett(char[][] spielBrett) {
-        spielBrett[0][0] = '_';
-        spielBrett[0][2] = '_';
-        spielBrett[0][4] = '_';
-        spielBrett[1][0] = '_';
-        spielBrett[1][2] = '_';
-        spielBrett[1][4] = '_';
-        spielBrett[2][0] = ' ';
-        spielBrett[2][2] = ' ';
-        spielBrett[2][4] = ' ';
-
-    }
 }
