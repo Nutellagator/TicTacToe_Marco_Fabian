@@ -1,88 +1,55 @@
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 
-
-
     public static void main(String[] args) {
+        Scanner scanner1 = new Scanner(System.in);
 
-        Scanner eingabe = new Scanner(System.in);
+        System.out.println("1: Spieler gegen Computer");
+        System.out.println("2: Spieler gegen Spieler");
+        System.out.println("3: Computer gegen Computer");
 
-        Spielbrett spielbrett1 = new Spielbrett();
-        Spieler spieler1 = new Spieler();
-        Spieler computer = new Computer();
-        Spieler spieler2 = new Spieler();
+        int eingabe = scanner1.nextInt();
+        while (eingabe < 1 || eingabe > 3) {
+            System.out.println("1: Spieler gegen Computer");
+            System.out.println("2: Spieler gegen Spieler");
+            System.out.println("3: Computer gegen Computer");
+            eingabe = scanner1.nextInt();
+        }
 
+        Spieler spieler1 = null;    // Spieler als leeres Feld initialisiert (Platzhalter)
+        Spieler spieler2 = null;
 
+        if (eingabe == 1) {
+            spieler1 = new Spieler(1);
+            spieler2 = new Computer(2); //instanceof
+        } else if(eingabe == 2) {
+            spieler1 = new Spieler(1);
+            spieler2 = new Spieler(2);
+        } else {
+            spieler1 = new Computer(1);
+            spieler2 = new Computer(2); //TODO: Name Attribut für Ausgabe
+        }
 
-        boolean gameOver = false;
-        boolean nochmalSpielen = true;
-        Spielbrett.ausgabeSpielbrett(spielbrett1.getSpielBrett());
-
-        //TODO call-by-value & call-by-reference wiederholen
-        // Game-Loop + ob nochmal gespielt werden soll
-        while (nochmalSpielen == true) {
-            while (gameOver == false) { //Game-Loop
-
-                Spieler.spielerZug(spielbrett1.getSpielBrett());
-                spielbrett1.setRunden(spielbrett1.getRunden()+1); //!TEST! Spiel nach 8 Runden Unentschieden -> Spielbrett.hatGewonnen: || runden == 8)
-                gameOver = Spielbrett.hatGewonnen(spielbrett1.getSpielBrett());
-                if (gameOver == true) {
-                    spieler1.setPunkte(spieler1.getPunkte()+1);
-                    System.out.println("Spieler Punkte: " + spieler1.getPunkte());
-                    break;
-                }
-
-                Computer.computerZug(spielbrett1.getSpielBrett());
-                spielbrett1.setRunden(spielbrett1.getRunden()+1);
-                gameOver = Spielbrett.hatGewonnen(spielbrett1.getSpielBrett());
-                if (gameOver == true) {
-                    computer.setPunkte(computer.getPunkte()+1);
-                    break;
-                }
-            }
-
-            //System.out.println("Computer Punkte: " + Spielbrett.getComputerPunkte());
-            System.out.println("Möchtest du nochmal spielen?  (J / N)");
-            //eingabe.nextLine();
-            String ergebnis = eingabe.nextLine();
-
-            switch (ergebnis) {
-                case "J":
-                case "j":
-                    nochmalSpielen = true;
-                    System.out.println("Ein neues Game startet!");
-                    Spielbrett.resetSpielbrett(spielbrett1.getSpielBrett());
-                    gameOver = false;
-                    Spielbrett.ausgabeSpielbrett(spielbrett1.getSpielBrett());
-                    break;
-
-                case "N":
-                case "n":
-                    nochmalSpielen = false;
-                    System.out.println("Bis zum nächsten mal!");
-                    break;
-                default:
-                    break;
-            }
+        Gameloop g1 = new Gameloop();
+        if (spielerFolgeUmdrehen() == true){
+            System.out.println("(Zufall) Spieler 1 beginnt! ");
+            g1.startGame(spieler1, spieler2);
+        } else {
+            System.out.println("(Zufall) Spieler 2 beginnt! ");
+            g1.startGame(spieler2, spieler1);
 
         }
+
     }
 
-// TODO: UpdateTest erfolgreich
-//        updateSpielbrett(2,1,spielBrett);
-//        updateSpielbrett(3,1,spielBrett);
-//        updateSpielbrett(4,2,spielBrett);
-//        updateSpielbrett(5,2,spielBrett);
-//        updateSpielbrett(6,2,spielBrett);
-
-// TODO: Wie greifen die Methoden auf die Werte einer anderen Methode zu
-
-        /*spielerZug(spielBrett);
-        computerZug(spielBrett);
-        spielerZug(spielBrett);
-        computerZug(spielBrett);*/
-
+    public static boolean spielerFolgeUmdrehen(){ // werBeginnt
+        double randomnumber = Math.random();
+        if (randomnumber <= 0.5) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
