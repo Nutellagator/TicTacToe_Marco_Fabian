@@ -21,7 +21,7 @@ public class Gameloop {
                 gameOver = Spielbrett.hatGewonnen(spielbrett1.getSpielBrett());
                 if (gameOver == true) {
                     spieler1.setPunkte(spieler1.getPunkte()+1);
-                    System.out.println("Spieler Punkte: " + spieler1.getPunkte());
+                    System.out.println("Spieler 1 Punkte: " + spieler1.getPunkte());
                     break;
                 }
 
@@ -30,6 +30,7 @@ public class Gameloop {
                 gameOver = Spielbrett.hatGewonnen(spielbrett1.getSpielBrett());
                 if (gameOver == true) {
                     spieler2.setPunkte(spieler2.getPunkte()+1);
+                    System.out.println("Spieler 2 Punkte: " + spieler2.getPunkte());
                     break;
                 }
             }
