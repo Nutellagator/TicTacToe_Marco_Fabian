@@ -44,10 +44,17 @@ public class Gameloop {
                 case "J":
                 case "j":
                     nochmalSpielen = true;
+
                     System.out.println("Ein neues Game startet!");
-                    Spielbrett.resetSpielbrett(spielbrett1.getSpielBrett());
-                    gameOver = false;
-                    Spielbrett.ausgabeSpielbrett(spielbrett1.getSpielBrett());
+                    Gameloop g1 = new Gameloop();
+                    if (Main.spielerFolgeUmdrehen() == true){
+                        System.out.println("(Zufall) Spieler 1 beginnt! ");
+                        g1.startGame(spieler1, spieler2);
+                    } else {
+                        System.out.println("(Zufall) Spieler 2 beginnt! ");
+                        g1.startGame(spieler2, spieler1);
+
+                    }
                     break;
 
                 case "N":
@@ -74,7 +81,7 @@ public class Gameloop {
                                             // (Tier -> welches Tier?
             Random rand = new Random();
 
-            boolean istSpielzugErlaubt; // TODO BESSER: istSpielzugErlaubt
+            boolean istSpielzugErlaubt;
 
             do {
                 spielZug = rand.nextInt(9) + 1;

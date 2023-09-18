@@ -28,7 +28,7 @@ public class Main {
             spieler2 = new Spieler(2);
         } else {
             spieler1 = new Computer(1);
-            spieler2 = new Computer(2); //TODO: Name Attribut für Ausgabe
+            spieler2 = new Computer(2);
         }
 
         Gameloop g1 = new Gameloop();
