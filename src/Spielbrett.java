@@ -99,6 +99,7 @@ public class Spielbrett {
                 return true;
             } else if (spielBrett[i][0] == 'O' && spielBrett[i][2] == 'O' && spielBrett[i][4] == 'O') {
                 System.out.println("Spieler 2 gewinnt");
+                return true;
             }
         }
 
