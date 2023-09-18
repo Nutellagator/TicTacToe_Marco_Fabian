@@ -89,30 +89,17 @@ public class Spielbrett {
 
     public static boolean hatGewonnen(char[][] spielBrett) {  // TODO Schleife (+2)
 
+
+
         //Horizontal
-        if (spielBrett[0][0] == 'X' && spielBrett[0][2] == 'X' && spielBrett[0][4] == 'X') {
-            System.out.println("Spieler gewinnt");
-            return true;
-        }
-        if (spielBrett[0][0] == 'O' && spielBrett[0][2] == 'O' && spielBrett[0][4] == 'O') {
-            System.out.println("Computer Gewinnt");
-            return true;
-        }
-        if (spielBrett[1][0] == 'X' && spielBrett[1][2] == 'X' && spielBrett[1][4] == 'X') {
-            System.out.println("Spieler gewinnt");
-            return true;
-        }
-        if (spielBrett[1][0] == 'O' && spielBrett[1][2] == 'O' && spielBrett[1][4] == 'O') {
-            System.out.println("Computer Gewinnt");
-            return true;
-        }
-        if (spielBrett[2][0] == 'X' && spielBrett[2][2] == 'X' && spielBrett[2][4] == 'X') {
-            System.out.println("Spieler gewinnt");
-            return true;
-        }
-        if (spielBrett[2][0] == 'O' && spielBrett[2][2] == 'O' && spielBrett[2][4] == 'O') {
-            System.out.println("Computer Gewinnt");
-            return true;
+        for (int i = 0; i < 3; i++) {
+            if (spielBrett[i][0] == 'X' && spielBrett[i][2] == 'X' && spielBrett[i][4] == 'X') {
+                System.out.println("Spieler 1 gewinnt");
+                //System.out.println(spieler == 'X' ? "Spieler 1 gewinnt" : "Spieler 2 gewinnt");
+                return true;
+            } else if (spielBrett[i][0] == 'O' && spielBrett[i][2] == 'O' && spielBrett[i][4] == 'O') {
+                System.out.println("Spieler 2 gewinnt");
+            }
         }
 
         //Vertikal
