@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-
+    //TODO Ausgabe anpassen das Computer gewinnt
     public static void main(String[] args) {
         Scanner scanner1 = new Scanner(System.in);
 
@@ -10,7 +10,7 @@ public class Main {
         System.out.println("3: Computer gegen Computer");
 
         int eingabe = scanner1.nextInt();
-        while (eingabe < 1 || eingabe > 3) {
+        while (eingabe < 1 || eingabe > 3) { // TODO Es darf auch kein Text eingegeben werden
             System.out.println("1: Spieler gegen Computer");
             System.out.println("2: Spieler gegen Spieler");
             System.out.println("3: Computer gegen Computer");

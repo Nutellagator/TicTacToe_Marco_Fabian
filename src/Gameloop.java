@@ -37,9 +37,9 @@ public class Gameloop {
             //System.out.println("Computer Punkte: " + Spielbrett.getComputerPunkte());
             System.out.println("Möchtest du nochmal spielen?  (J / N)");
             //eingabe.nextLine();
-            String ergebnis = eingabe.nextLine();
+            String istSpielzugErlaubt = eingabe.nextLine();
 
-            switch (ergebnis) {
+            switch (istSpielzugErlaubt) {
                 case "J":
                 case "j":
                     nochmalSpielen = true;
@@ -73,12 +73,12 @@ public class Gameloop {
                                             // (Tier -> welches Tier?
             Random rand = new Random();
 
-            boolean ergebnis; // TODO BESSER: istSpielzugErlaubt
+            boolean istSpielzugErlaubt; // TODO BESSER: istSpielzugErlaubt
 
             do {
                 spielZug = rand.nextInt(9) + 1;
-                ergebnis = Gameloop.istSpielzugErlaubt(spielZug, spielBrett);
-            } while (ergebnis == false);
+                istSpielzugErlaubt = Gameloop.istSpielzugErlaubt(spielZug, spielBrett);
+            } while (istSpielzugErlaubt == false);
 
             System.out.println("Computer Spielzug: " + spielZug);
         } else {
@@ -87,12 +87,12 @@ public class Gameloop {
             Scanner eingabe = new Scanner(System.in);
             spielZug = eingabe.nextInt();
 
-            boolean ergebnis = istSpielzugErlaubt(spielZug, spielBrett);
+            boolean istSpielzugErlaubt = istSpielzugErlaubt(spielZug, spielBrett);
 
-            while (ergebnis == false) {  //TODO Kurzschreibweise wiederholen/lernen
+            while (istSpielzugErlaubt == false) {  //TODO Kurzschreibweise wiederholen/lernen
                 System.out.println("Feld wurde bereits gewählt");
                 spielZug = eingabe.nextInt();
-                ergebnis = istSpielzugErlaubt(spielZug, spielBrett);
+                istSpielzugErlaubt = istSpielzugErlaubt(spielZug, spielBrett);
             }
 
             System.out.println("Position " + spielZug + " gewählt.");
