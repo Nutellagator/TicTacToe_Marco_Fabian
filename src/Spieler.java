@@ -3,9 +3,6 @@ import java.util.Scanner;  //POJO
 public class Spieler {
 
     private int Punkte = 0;
-
-
-
     private int spielerNummer;
 
     public Spieler(int spielerNummer) {

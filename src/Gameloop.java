@@ -17,7 +17,7 @@ public class Gameloop {
             while (gameOver == false) { //Game-Loop
 
                 spielerZug(spielbrett1.getSpielBrett(), spieler1);
-                spielbrett1.setRunden(spielbrett1.getRunden()+1); //!TEST! Spiel nach 8 Runden Unentschieden -> Spielbrett.hatGewonnen: || runden == 8)
+                //spielbrett1.setRunden(spielbrett1.getRunden()+1); //!TEST! Spiel nach 8 Runden Unentschieden -> Spielbrett.hatGewonnen: || runden == 8)
                 gameOver = Spielbrett.hatGewonnen(spielbrett1.getSpielBrett());
                 if (gameOver == true) {
                     spieler1.setPunkte(spieler1.getPunkte()+1);
@@ -26,7 +26,7 @@ public class Gameloop {
                 }
 
                 spielerZug(spielbrett1.getSpielBrett(), spieler2);
-                spielbrett1.setRunden(spielbrett1.getRunden()+1);
+                //spielbrett1.setRunden(spielbrett1.getRunden()+1);
                 gameOver = Spielbrett.hatGewonnen(spielbrett1.getSpielBrett());
                 if (gameOver == true) {
                     spieler2.setPunkte(spieler2.getPunkte()+1);

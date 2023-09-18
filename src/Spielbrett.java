@@ -3,7 +3,7 @@ public class Spielbrett {
     // Multidimensionales-Array, Darstellung des Spielfeldes
     // Spielbrett enthält 3 Arrays, jedes Array enthält Wertebereich 0-4 (5 Werte mit Komma getrennt)
     private char [][] spielBrett = {{'_','|','_','|','_'},{'_', '|', '_','|','_'},{' ','|',' ','|',' '}};  // Letztes Array leerzeichen wegen Augenschmaus
-    private static int runden = 0;
+    /*private static int runden = 0;
 
 
     //Methoden
@@ -13,7 +13,7 @@ public class Spielbrett {
 
     public void setRunden(int runden) {
         Spielbrett.runden = runden;
-    }
+    }*/
     public char[][] getSpielBrett() {
         return spielBrett;
     }
@@ -87,7 +87,7 @@ public class Spielbrett {
         }
     }
 
-    public static boolean hatGewonnen(char[][] spielBrett) {
+    public static boolean hatGewonnen(char[][] spielBrett) {  // TODO Schleife (+2)
 
         //Horizontal
         if (spielBrett[0][0] == 'X' && spielBrett[0][2] == 'X' && spielBrett[0][4] == 'X') {
@@ -164,7 +164,7 @@ public class Spielbrett {
 
         //Unentschieden  (Wenn die Felder nichtmehr leer sind)
         if (spielBrett[0][0] != '_' && spielBrett[0][2] != '_' && spielBrett[0][4] != '_' && spielBrett[1][0] != '_' &&
-                spielBrett[1][2] != '_' && spielBrett[1][4] != '_' && spielBrett[2][0] != ' ' && spielBrett[2][2] != ' ' && spielBrett[2][4] != ' ' || runden == 8) {
+                spielBrett[1][2] != '_' && spielBrett[1][4] != '_' && spielBrett[2][0] != ' ' && spielBrett[2][2] != ' ' && spielBrett[2][4] != ' ') {
             System.out.println("Unentschieden");
             return true;
         }
