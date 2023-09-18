@@ -7,7 +7,7 @@ class SpielerTest {
 
     @Test
     void getSpielerNummer() {
-        System.out.println(" testGetSpielerNummer");
+        System.out.println("test getSpielerNummer");
         Spieler spieler1 = new Spieler(1);
         assertEquals(spieler1.getSpielerNummer(), 1);  //Methode aus Assert Klasse. Bei Run (unten links) muss "Test passed" rauskommen
     }                                                       // Objekt erstellen nötig weil nicht static
@@ -22,9 +22,16 @@ class SpielerTest {
 
     @Test
     void getPunkte() {
+        System.out.println("test getPunkte");
+        Spieler spieler1 = new Spieler(1);
+        assertEquals(spieler1.getPunkte(),0);
     }
 
     @Test
     void setPunkte() {
+        System.out.println("test setPunkte");
+        Spieler spieler1 = new Computer(2);
+        spieler1.setPunkte(1);
+        assertEquals(spieler1.getPunkte(),1);
     }
 }
