@@ -128,7 +128,7 @@ public class Spielbrett {
         return false;
     }
 
-    public static boolean istUnentschieden(char[][] spielBrett){
+    public static boolean istUnentschieden(char[][] spielBrett) {
         //Unentschieden  (Wenn die Felder nichtmehr leer sind)
         //hatGewonnen(spielBrett);
         if (hatGewonnen(spielBrett) == false && (spielBrett[0][0] != '_' && spielBrett[0][2] != '_' && spielBrett[0][4] != '_' && spielBrett[1][0] != '_' &&

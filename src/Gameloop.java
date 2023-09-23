@@ -4,31 +4,35 @@ import java.util.Scanner;
 public class Gameloop {
     static Scanner eingabe = new Scanner(System.in);
 
-    public void startGame(Spieler spieler1, Spieler spieler2){ // Spieler außerhalb von Gameloop generiert (von außen definiert, um zu sagen ob Spieler oder Computer)
-        Spielbrett spielbrett1 = new Spielbrett();
+    public void startGame(Spieler spieler1, Spieler spieler2) { // Spieler außerhalb von Gameloop generiert (von außen definiert, um zu sagen ob Spieler oder Computer)
 
         boolean gameOver = false;
         boolean nochmalSpielen = true;
         boolean winWin = false;
+
+        Spielbrett spielbrett1 = new Spielbrett();
+        ScannerCheck checkContinue = new ScannerCheck();
+
+
         Spielbrett.ausgabeSpielbrett(spielbrett1.getSpielBrett());
 
         //TODO call-by-value & call-by-reference wiederholen
         // Game-Loop + ob nochmal gespielt werden soll
         while (nochmalSpielen == true) {
-            while (gameOver == false ) { //Game-Loop
+            while (gameOver == false) { //Game-Loop
 
                 //SPIELZUG FÜR SPIELER EINS
                 spielerZug(spielbrett1.getSpielBrett(), spieler1);
                 //spielbrett1.setRunden(spielbrett1.getRunden()+1); //!TEST! Spiel nach 8 Runden Unentschieden -> Spielbrett.hatGewonnen: || runden == 8)
                 gameOver = Spielbrett.hatGewonnen(spielbrett1.getSpielBrett());
                 if (gameOver == true) {
-                    spieler1.setPunkte(spieler1.getPunkte()+1);
+                    spieler1.setPunkte(spieler1.getPunkte() + 1);
                     System.out.println("Spieler 1 Punkte: " + spieler1.getPunkte());
                     System.out.println("Spieler 2 Punkte: " + spieler2.getPunkte());
                     break;
                 }
                 winWin = Spielbrett.istUnentschieden(spielbrett1.getSpielBrett());
-                if (winWin == true){
+                if (winWin == true) {
                     System.out.println("Unentschieden");
                     break;
                 }
@@ -38,22 +42,23 @@ public class Gameloop {
                 //spielbrett1.setRunden(spielbrett1.getRunden()+1);
                 gameOver = Spielbrett.hatGewonnen(spielbrett1.getSpielBrett());
                 if (gameOver == true) {
-                    spieler2.setPunkte(spieler2.getPunkte()+1);
-                    System.out.println("Spieler 2 Punkte: " + spieler1.getPunkte() );
+                    spieler2.setPunkte(spieler2.getPunkte() + 1);
+                    System.out.println("Spieler 2 Punkte: " + spieler1.getPunkte());
                     System.out.println("Spieler 1 Punkte: " + spieler2.getPunkte());
                     break;
                 }
                 winWin = Spielbrett.istUnentschieden(spielbrett1.getSpielBrett());
-                if (winWin == true){
+                if (winWin == true) {
                     System.out.println("Unentschieden");
                     break;
                 }
             }
 
             //System.out.println("Computer Punkte: " + Spielbrett.getComputerPunkte());
-            System.out.println("Möchtest du nochmal spielen?  (J / N)");
+            System.out.println("Möchtest du nochmal spielen?");
+
             //eingabe.nextLine();
-            String istSpielzugErlaubt = eingabe.nextLine();
+            String istSpielzugErlaubt = checkContinue.getInputString();
 
             switch (istSpielzugErlaubt) {
                 case "J":
@@ -61,14 +66,14 @@ public class Gameloop {
                     nochmalSpielen = true;
 
                     System.out.println("Ein neues Game startet!");
-                    if (Main.spielerFolgeUmdrehen() == true){
+                    if (Main.spielerFolgeUmdrehen() == true) {
                         System.out.println("(Zufall) Spieler 1 beginnt! ");
                         Gameloop g1 = new Gameloop();
-                        g1.startGame(spieler1,spieler2);
+                        g1.startGame(spieler1, spieler2);
                     } else {
                         System.out.println("(Zufall) Spieler 2 beginnt! ");
                         Gameloop g2 = new Gameloop();
-                        g2.startGame(spieler2,spieler1);
+                        g2.startGame(spieler2, spieler1);
                     }
 
                     break;
@@ -91,10 +96,10 @@ public class Gameloop {
     public static void spielerZug(char[][] spielBrett, Spieler spieler) { //weil spielbrett statisch ist, kann man es im Spieler nicht schreiben
 
         int spielZug;
-        if(spieler instanceof Computer) {   // instanceoff = Prüft ob Spieler spieler ein computer ist TODO bei vererbung!
-                                            // (Computer ist immer ein Spieler, aber spieler ist nicht immer ein computer)
-                                            // Wenn der Spieler ein Computer ist, gib True zurück -> ist spieler ein computer?
-                                            // (Tier -> welches Tier?
+        if (spieler instanceof Computer) {   // instanceoff = Prüft ob Spieler spieler ein computer ist TODO bei vererbung!
+            // (Computer ist immer ein Spieler, aber spieler ist nicht immer ein computer)
+            // Wenn der Spieler ein Computer ist, gib True zurück -> ist spieler ein computer?
+            // (Tier -> welches Tier?
             Random rand = new Random();
 
             boolean istSpielzugErlaubt;
@@ -190,7 +195,6 @@ public class Gameloop {
         }
 
     }
-
 
 
 }

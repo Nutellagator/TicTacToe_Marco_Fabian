@@ -9,24 +9,26 @@ public class ScannerCheck {
 
         int num;
 
-        while(true) {
-            System.out.print("GIB EINE GANZZAHL EIN: ");
+        while (true) {
+
 
             try {
                 num = scanner.nextInt();
                 break;
             } catch (InputMismatchException e) {
-                System.out.println("Fehler: Sie haben keinen Integer eingegeben. Bitte versuchen Sie es erneut.");
+                System.out.println("");
+                System.out.println("Fehler: Sie haben keine Ganzzahl eingegeben. Bitte versuchen Sie es erneut.");
                 scanner.nextLine(); // resettet den Scanner quasi
 
             }
-        } return num;
+        }
+        return num;
 
     }
 
     //Diese Methode prüft, ob ein String vom Nutzer eingegeben wurde.
     //Wenn nicht, dann wird Neu-Eingabe aufgefordert.
-/*    public String getInputString() {
+    public String getInputString() {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("EINGABE: ");
@@ -36,21 +38,21 @@ public class ScannerCheck {
 
             inputString = sc.nextLine();
 
-            if (inputString.isEmpty()){
-                System.out.print("Bitte Tippe ein [ja] oder [nein]: ");
-            }
-            else if (inputString.equalsIgnoreCase("ja")) {
+            if (inputString.isEmpty()) {
+                System.out.print("Bitte Tippe ein [j] oder [n]: ");
+            } else if (inputString.equalsIgnoreCase("j")) {
                 //System.out.println("Deine Eingabe: " + inputString); -> zu Testzwecken
                 break;
 
-            } else if (inputString.equalsIgnoreCase("nein")) {
+            } else if (inputString.equalsIgnoreCase("n")) {
                 //System.out.println("Deine Eingabe: " + inputString); -> zu Testzwecken
                 break;
 
             } else {
-                System.out.print("Bitte Tippe ein [ja] oder [nein]: ");
+                System.out.print("Bitte Tippe ein [j] oder [n]: ");
             }
-        } return inputString;
+        }
+        return inputString;
 
-    }*/
+    }
 }
