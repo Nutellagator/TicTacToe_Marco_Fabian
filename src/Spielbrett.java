@@ -91,7 +91,6 @@ public class Spielbrett {
 
     public static boolean hatGewonnen(char[][] spielBrett) {  // TODO Schleife (+2)
 
-
         //Horizontal
         for (int i = 0; i < 3; i++) {
             if (spielBrett[i][0] == 'X' && spielBrett[i][2] == 'X' && spielBrett[i][4] == 'X') {
@@ -103,7 +102,8 @@ public class Spielbrett {
             }
         }
         //Vertikal
-        for (int i = 0; i < 3; i += 2) {
+
+        for (int i = 0; i < 5; i += 2) {
             if (spielBrett[0][i] == 'X' && spielBrett[1][i] == 'X' && spielBrett[2][i] == 'X') {
                 System.out.println("Spieler 1 gewinnt");
                 return true;
@@ -112,6 +112,8 @@ public class Spielbrett {
                 return true;
             }
         }
+
+
         //Diagonale
         if ((spielBrett[0][0] == 'X' && spielBrett[1][2] == 'X' && spielBrett[2][4] == 'X') ||
                 (spielBrett[2][0] == 'X' && spielBrett[1][2] == 'X' && spielBrett[0][4] == 'X')) {
@@ -123,12 +125,14 @@ public class Spielbrett {
             return true;
         }
 
+        return false;
+    }
 
-
+    public static boolean istUnentschieden(char[][] spielBrett){
         //Unentschieden  (Wenn die Felder nichtmehr leer sind)
-        if (spielBrett[0][0] != '_' && spielBrett[0][2] != '_' && spielBrett[0][4] != '_' && spielBrett[1][0] != '_' &&
-                spielBrett[1][2] != '_' && spielBrett[1][4] != '_' && spielBrett[2][0] != ' ' && spielBrett[2][2] != ' ' && spielBrett[2][4] != ' ') {
-            System.out.println("Unentschieden");
+        //hatGewonnen(spielBrett);
+        if (hatGewonnen(spielBrett) == false && (spielBrett[0][0] != '_' && spielBrett[0][2] != '_' && spielBrett[0][4] != '_' && spielBrett[1][0] != '_' &&
+                spielBrett[1][2] != '_' && spielBrett[1][4] != '_' && spielBrett[2][0] != ' ' && spielBrett[2][2] != ' ' && spielBrett[2][4] != ' ')) {
             return true;
         }
         return false;

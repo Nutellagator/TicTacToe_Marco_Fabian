@@ -9,28 +9,43 @@ public class Gameloop {
 
         boolean gameOver = false;
         boolean nochmalSpielen = true;
+        boolean winWin = false;
         Spielbrett.ausgabeSpielbrett(spielbrett1.getSpielBrett());
 
         //TODO call-by-value & call-by-reference wiederholen
         // Game-Loop + ob nochmal gespielt werden soll
         while (nochmalSpielen == true) {
-            while (gameOver == false) { //Game-Loop
+            while (gameOver == false ) { //Game-Loop
 
+                //SPIELZUG FÜR SPIELER EINS
                 spielerZug(spielbrett1.getSpielBrett(), spieler1);
                 //spielbrett1.setRunden(spielbrett1.getRunden()+1); //!TEST! Spiel nach 8 Runden Unentschieden -> Spielbrett.hatGewonnen: || runden == 8)
                 gameOver = Spielbrett.hatGewonnen(spielbrett1.getSpielBrett());
                 if (gameOver == true) {
                     spieler1.setPunkte(spieler1.getPunkte()+1);
                     System.out.println("Spieler 1 Punkte: " + spieler1.getPunkte());
+                    System.out.println("Spieler 2 Punkte: " + spieler2.getPunkte());
+                    break;
+                }
+                winWin = Spielbrett.istUnentschieden(spielbrett1.getSpielBrett());
+                if (winWin == true){
+                    System.out.println("Unentschieden");
                     break;
                 }
 
+                //SPIELZUG FÜR SPIELER ZWEI
                 spielerZug(spielbrett1.getSpielBrett(), spieler2);
                 //spielbrett1.setRunden(spielbrett1.getRunden()+1);
                 gameOver = Spielbrett.hatGewonnen(spielbrett1.getSpielBrett());
                 if (gameOver == true) {
                     spieler2.setPunkte(spieler2.getPunkte()+1);
-                    System.out.println("Spieler 2 Punkte: " + spieler2.getPunkte());
+                    System.out.println("Spieler 2 Punkte: " + spieler1.getPunkte() );
+                    System.out.println("Spieler 1 Punkte: " + spieler2.getPunkte());
+                    break;
+                }
+                winWin = Spielbrett.istUnentschieden(spielbrett1.getSpielBrett());
+                if (winWin == true){
+                    System.out.println("Unentschieden");
                     break;
                 }
             }
@@ -46,15 +61,16 @@ public class Gameloop {
                     nochmalSpielen = true;
 
                     System.out.println("Ein neues Game startet!");
-                    Gameloop g1 = new Gameloop();
                     if (Main.spielerFolgeUmdrehen() == true){
                         System.out.println("(Zufall) Spieler 1 beginnt! ");
-                        g1.startGame(spieler1, spieler2);
+                        Gameloop g1 = new Gameloop();
+                        g1.startGame(spieler1,spieler2);
                     } else {
                         System.out.println("(Zufall) Spieler 2 beginnt! ");
-                        g1.startGame(spieler2, spieler1);
-
+                        Gameloop g2 = new Gameloop();
+                        g2.startGame(spieler2,spieler1);
                     }
+
                     break;
 
                 case "N":

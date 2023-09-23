@@ -31,14 +31,15 @@ public class Main {
             spieler2 = new Computer(2);
         }
 
-        Gameloop g1 = new Gameloop();
+
         if (spielerFolgeUmdrehen() == true){
             System.out.println("(Zufall) Spieler 1 beginnt! ");
-            g1.startGame(spieler1, spieler2);
+            Gameloop g1 = new Gameloop();
+            g1.startGame(spieler1,spieler2);
         } else {
             System.out.println("(Zufall) Spieler 2 beginnt! ");
-            g1.startGame(spieler2, spieler1);
-
+            Gameloop g2 = new Gameloop();
+            g2.startGame(spieler2,spieler1);
         }
 
     }
