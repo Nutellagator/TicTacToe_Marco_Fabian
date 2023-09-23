@@ -2,7 +2,8 @@ public class Spielbrett {
 
     // Multidimensionales-Array, Darstellung des Spielfeldes
     // Spielbrett enthält 3 Arrays, jedes Array enthält Wertebereich 0-4 (5 Werte mit Komma getrennt)
-    private char [][] spielBrett = {{'_','|','_','|','_'},{'_', '|', '_','|','_'},{' ','|',' ','|',' '}};  // Letztes Array leerzeichen wegen Augenschmaus
+    private char[][] spielBrett = {{'_', '|', '_', '|', '_'}, {'_', '|', '_', '|', '_'}, {' ', '|', ' ', '|', ' '}};  // Letztes Array leerzeichen wegen Augenschmaus
+
     /*private static int runden = 0;
 
 
@@ -24,28 +25,29 @@ public class Spielbrett {
 
     //Methode um das Spielfeld mit den Werten des Arrays zu erzeugen
     // { 1. {'_','|','_','|','_'}, 2. {'_', '|', '_','|','_'}, 3. {' ','|',' ','|',' '}};
-    public static void ausgabeSpielbrett(char [][]spielBrett){  // Spielbrett Parameter
+    public static void ausgabeSpielbrett(char[][] spielBrett) {  // Spielbrett Parameter
 
-        for(char[] row : spielBrett){  // (for-each) for- Schleife für Array's...for (type variableName : arrayName)
-            for(char c : row){              // Zählt die Indexe(Inhalte, 3x5 Inhalte) - Erst Zeile, dann Spalte = 2D-char-Array
+        for (char[] row : spielBrett) {  // (for-each) for- Schleife für Array's...for (type variableName : arrayName)
+            for (char c : row) {              // Zählt die Indexe(Inhalte, 3x5 Inhalte) - Erst Zeile, dann Spalte = 2D-char-Array
                 System.out.print(c);        // print, nicht println
             }
             System.out.println(); // Erste for Schleife
 
         }
     }
-    public static void updateSpielbrett(int position, int spieler, char [][] spielBrett){
+
+    public static void updateSpielbrett(int position, int spieler, char[][] spielBrett) {
 
         // das für den Spieler der gerade am Zug ist, das richtige Symbol eingesetzt wird ( X oder O )
         char character;
-        if(spieler == 1){               // Spieler = 1, Computer = 2
+        if (spieler == 1) {               // Spieler = 1, Computer = 2
             character = 'X';            // ' '  statt " " weil char Datentyp
         } else {
             character = 'O';
         }
 
         // Um zu bestimmen an welche Stelle im Spielfeld (Array) das jeweilige Zeichen gesetzt wird ( X oder O )
-        switch (position){  // Positionen im Feld
+        switch (position) {  // Positionen im Feld
             case 1:
                 spielBrett[0][0] = character;  // character X oder O
                 Spielbrett.ausgabeSpielbrett(spielBrett);
@@ -90,65 +92,38 @@ public class Spielbrett {
     public static boolean hatGewonnen(char[][] spielBrett) {  // TODO Schleife (+2)
 
 
-
         //Horizontal
         for (int i = 0; i < 3; i++) {
             if (spielBrett[i][0] == 'X' && spielBrett[i][2] == 'X' && spielBrett[i][4] == 'X') {
                 System.out.println("Spieler 1 gewinnt");
-                //System.out.println(spieler == 'X' ? "Spieler 1 gewinnt" : "Spieler 2 gewinnt");
                 return true;
             } else if (spielBrett[i][0] == 'O' && spielBrett[i][2] == 'O' && spielBrett[i][4] == 'O') {
                 System.out.println("Spieler 2 gewinnt");
                 return true;
             }
         }
-
         //Vertikal
-        if (spielBrett[0][0] == 'X' && spielBrett[1][0] == 'X' && spielBrett[2][0] == 'X') {
-            System.out.println("Spieler gewinnt");
-            return true;
+        for (int i = 0; i < 3; i += 2) {
+            if (spielBrett[0][i] == 'X' && spielBrett[1][i] == 'X' && spielBrett[2][i] == 'X') {
+                System.out.println("Spieler 1 gewinnt");
+                return true;
+            } else if (spielBrett[0][i] == 'O' && spielBrett[1][i] == 'O' && spielBrett[2][i] == 'O') {
+                System.out.println("Spieler 2 gewinnt");
+                return true;
+            }
         }
-        if (spielBrett[0][0] == 'O' && spielBrett[1][0] == 'O' && spielBrett[2][0] == 'O') {
-            System.out.println("Computer Gewinnt");
+        //Diagonale
+        if ((spielBrett[0][0] == 'X' && spielBrett[1][2] == 'X' && spielBrett[2][4] == 'X') ||
+                (spielBrett[2][0] == 'X' && spielBrett[1][2] == 'X' && spielBrett[0][4] == 'X')) {
+            System.out.println("Spieler 1 gewinnt");
             return true;
-        }
-
-        if (spielBrett[0][2] == 'X' && spielBrett[1][2] == 'X' && spielBrett[2][2] == 'X') {
-            System.out.println("Spieler gewinnt");
-            return true;
-        }
-        if (spielBrett[0][2] == 'O' && spielBrett[1][2] == 'O' && spielBrett[2][2] == 'O') {
-            System.out.println("Computer Gewinnt");
-            return true;
-        }
-
-        if (spielBrett[0][4] == 'X' && spielBrett[1][4] == 'X' && spielBrett[2][4] == 'X') {
-            System.out.println("Spieler gewinnt");
-            return true;
-        }
-        if (spielBrett[0][4] == 'O' && spielBrett[1][4] == 'O' && spielBrett[2][4] == 'O') {
-            System.out.println("Computer Gewinnt");
+        } else if ((spielBrett[0][0] == '0' && spielBrett[1][2] == '0' && spielBrett[2][4] == '0') ||
+                (spielBrett[2][0] == '0' && spielBrett[1][2] == '0' && spielBrett[0][4] == '0')) {
+            System.out.println("Spieler 2 gewinnt");
             return true;
         }
 
-        //Diagonal
-        if (spielBrett[0][0] == 'X' && spielBrett[1][2] == 'X' && spielBrett[2][4] == 'X') {
-            System.out.println("Spieler gewinnt");
-            return true;
-        }
-        if (spielBrett[0][0] == 'O' && spielBrett[1][2] == 'O' && spielBrett[2][4] == 'O') {
-            System.out.println("Computer Gewinnt");
-            return true;
-        }
 
-        if (spielBrett[2][0] == 'X' && spielBrett[1][2] == 'X' && spielBrett[0][4] == 'X') {
-            System.out.println("Spieler gewinnt");
-            return true;
-        }
-        if (spielBrett[2][0] == 'O' && spielBrett[1][2] == 'O' && spielBrett[0][4] == 'O') {
-            System.out.println("Computer Gewinnt");
-            return true;
-        }
 
         //Unentschieden  (Wenn die Felder nichtmehr leer sind)
         if (spielBrett[0][0] != '_' && spielBrett[0][2] != '_' && spielBrett[0][4] != '_' && spielBrett[1][0] != '_' &&
@@ -160,7 +135,7 @@ public class Spielbrett {
     }
 
     // Wenn nochmal gespielt werden soll, dann wird Spielfeld (Arrays) zurückgesetzt
-    public static void resetSpielbrett(char[][] spielBrett) {
+/*    public static void resetSpielbrett(char[][] spielBrett) {
         spielBrett[0][0] = '_';
         spielBrett[0][2] = '_';
         spielBrett[0][4] = '_';
@@ -171,5 +146,5 @@ public class Spielbrett {
         spielBrett[2][2] = ' ';
         spielBrett[2][4] = ' ';
 
-    }
+    }*/
 }
